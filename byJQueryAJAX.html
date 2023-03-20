@@ -5,16 +5,23 @@
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
-    <input type="file" name="boheimg" onchange="getfilename()"> 
+    
+    
+    
+
+
+  
+    <input type="file" id="boheimg" onchange="getfilename()"> 
           
-    <script>
+<script>
+    
     function getfilename(){
         var fileArray = document.getElementById('boheimg').files;
         var formData = new FormData();
         for(var i=0; i<fileArray.length; i++){
             formData.append("fileArray", fileArray[i]);
         }
-        console.log(fileArray);
+       
         formData.append("api_token", "你的API Token");
         formData.append("mode", "命名方式");
         formData.append("uploadPath", "上传目录");
@@ -37,5 +44,5 @@
 
     }
     </script>
-</body>
-</html>
+    </body>
+    </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+     <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+    <input type="file" name="boheimg" onchange="getfilename()"> 
+          
+    <script>
+    function getfilename(){
+        var fileArray = document.getElementById('boheimg').files;
+        var formData = new FormData();
+        for(var i=0; i<fileArray.length; i++){
+            formData.append("fileArray", fileArray[i]);
+        }
+        console.log(fileArray);
+        formData.append("api_token", "你的API Token");
+        formData.append("mode", "命名方式");
+        formData.append("uploadPath", "上传目录");
+        formData.append("watermark", "是否开启水印");
+         $.ajax({
+             url: "你的API接口地址",//传向后台服务器文件
+             type: 'post',    //传递方法
+             data: formData,  //传递的数据
+             dataType : 'json',  //传递数据的格式
+             contentType: false,
+             processData: false,
+             success: function (responseStr) {
+                                    
+                console.log(responseStr)
+             },
+             error: function () {
+                alert("上传错误！");
+             }
+         });
+
+    }
+    </script>
+</body>
+</html>

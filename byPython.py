@@ -2,7 +2,7 @@ import requests
 # 此处仅提供一个简单的示例，具体实现起来方案有很多，可按需开发
 def python_demo():
     url = '你的接口地址'
-    files = {'fileArray': ('demo.jpg', open('demo.jpg', 'rb'), "image/jpeg")}
+    files = {'uploadedFile': ('demo.jpg', open('demo.jpg', 'rb'), "image/jpeg")}
     data = {'api_token': '你的token',
             'mode': '命名方式',
             'uploadPath': '上传目录',

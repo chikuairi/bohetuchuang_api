@@ -5,7 +5,7 @@ $url = "你的接口地址";
 
 // 定义POST DATA 数组
 $post_data = [
-    'fileArray'=>new \CURLFile('/www/wwwroot/myProduct/demo.jpg'),// 如果使用这个方式请填写文件的绝对路径
+    'uploadedFile'=>new \CURLFile('/www/wwwroot/myProduct/demo.jpg'),// 如果使用这个方式请填写文件的绝对路径
     'api_token' => '你的token',
     'mode' => '命名方式',
     'uploadPath' => '上传目录',

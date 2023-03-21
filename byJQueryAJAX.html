@@ -1,48 +1,51 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-     <meta charset="utf-8">
+    <meta charset="utf-8">
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
-    
-    
-    
-
-
-  
+    <!-- 此处仅提供一个简单的示例，具体实现起来方案有很多，可按需开发 -->
     <input type="file" id="boheimg" onchange="getfilename()"> 
           
-<script>
-    
-    function getfilename(){
-        var fileArray = document.getElementById('boheimg').files;
-        var formData = new FormData();
-        for(var i=0; i<fileArray.length; i++){
-            formData.append("fileArray", fileArray[i]);
+    <script>
+        function getfilename(){
+            var fileArray = document.getElementById('boheimg').files;
+            var formData = new FormData();
+            for(var i=0; i<fileArray.length; i++){
+                formData.append("fileArray", fileArray[i]);
+            }
+            console.log(fileArray);
+            formData.append("api_token", "你的token");
+            formData.append("mode", "命名方式");
+            formData.append("uploadPath", "上传目录");
+            formData.append("watermark", "是否开启水印");
+             $.ajax({
+                 url: "你的接口地址",//传向后台服务器文件
+                 type: 'post',    //传递方法
+                 data: formData,  //传递的数据
+                 dataType : 'json',  //传递数据的格式
+                 contentType: false,
+                 processData: false,
+                 success: function (responseStr) {
+                    console.log(responseStr)
+                 },
+                 error: function () {
+                    alert("上传错误！");
+                 }
+             });
         }
-       
-        formData.append("api_token", "你的API Token");
-        formData.append("mode", "命名方式");
-        formData.append("uploadPath", "上传目录");
-        formData.append("watermark", "是否开启水印");
-         $.ajax({
-             url: "你的API接口地址",//传向后台服务器文件
-             type: 'post',    //传递方法
-             data: formData,  //传递的数据
-             dataType : 'json',  //传递数据的格式
-             contentType: false,
-             processData: false,
-             success: function (responseStr) {
-                                    
-                console.log(responseStr)
-             },
-             error: function () {
-                alert("上传错误！");
-             }
-         });
 
-    }
+        // 以下代码只是调用结果展示，复制代码后删掉或者注释掉下面内容才能运行
+        // 响应结果
+        {
+            "status":"success",
+            "statusCode":"200",
+            "resultData":"success：File uploaded",
+            "url":"返回的文件链接",
+            "originFileName":"原文件名称",
+            "lessurl":"不含https://前缀的链接"
+        }
     </script>
-    </body>
-    </html>
+</body>
+</html>

@@ -10,12 +10,12 @@
           
     <script>
         function getfilename(){
-            var fileArray = document.getElementById('boheimg').files;
+            var uploadedFile = document.getElementById('boheimg').files;
             var formData = new FormData();
-            for(var i=0; i<fileArray.length; i++){
-                formData.append("fileArray", fileArray[i]);
+            for(var i=0; i<uploadedFile.length; i++){
+                formData.append("uploadedFile", uploadedFile[i]);
             }
-            console.log(fileArray);
+            console.log(uploadedFile);
             formData.append("api_token", "你的token");
             formData.append("mode", "命名方式");
             formData.append("uploadPath", "上传目录");

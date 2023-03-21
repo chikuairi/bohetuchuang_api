@@ -11,6 +11,7 @@ def python_demo():
     print(res.text)
 python_demo()
 
+# 以下代码只是调用结果展示，复制代码后删掉或者注释掉下面内容才能运行
 # 响应结果
 {"result":"success",
  "url":"返回的文件链接",

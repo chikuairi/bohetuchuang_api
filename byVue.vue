@@ -14,7 +14,7 @@ export default {
             
             let file = event.target.files
             let formData = new FormData()
-            formData.append('fileArray', file[0])
+            formData.append('uploadedFile', file[0])
             formData.append("api_token", "你的token");
             formData.append("mode", "命名方式");
             formData.append("uploadPath", "上传目录");

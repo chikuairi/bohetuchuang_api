@@ -1,3 +1,4 @@
+-- 此处仅提供一个简单的示例，具体实现起来方案有很多，可按需开发
 local http = require("socket.http")
 local ltn12 = require("ltn12")
 local url = require("socket.url")
